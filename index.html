@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Landing Page for an Electric Scooter Repair Workshop</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- 1. Header / Nav Component -->
+    <header>
+        <div class="logo">ScooterFix</div>
+        <nav id="nav-menu">
+            <a href="#breakdowns">Breakdowns</a>
+            <a href="#prices">Prices</a>
+            <a href="#warranty">Warranty</a>
+        </nav>
+        <button class="accent-btn cta-btn">Urgent Master Call</button>
+        <button id="burger-btn" aria-label="Open menu">☰</button>
+    </header>
+
+    <main>
+        <!-- 2. Hero Section Component -->
+        <section id="hero">
+            <div class="hero-content">
+                <h1>We Will Fix Your Electric Scooter in 30 Minutes with a Warranty</h1>
+                <button class="cta-btn hero-btn">Call a Courier</button>
+            </div>
+        </section>
+
+        <!-- 3. Grid Section Component -->
+        <section id="breakdowns">
+            <h2 class="section-title">Our Services & Prices</h2>
+            <div class="price-grid">
+                <article class="grid-card">
+                    <h3>Battery Replacement</h3>
+                    <p class="price">$50</p>
+                    <p class="deadline">Deadline: 1 Day</p>
+                </article>
+                <article class="grid-card">
+                    <h3>Controllers Repair</h3>
+                    <p class="price">$80</p>
+                    <p class="deadline">Deadline: 2 Days</p>
+                </article>
+                <article class="grid-card">
+                    <h3>Braking Systems</h3>
+                    <p class="price">$40</p>
+                    <p class="deadline">Deadline: 2 Hours</p>
+                </article>
+            </div>
+        </section>
+
+        <!-- 4. Feedback Form Component -->
+        <section id="feedback">
+            <h2 class="section-title">Request a Repair</h2>
+            <form id="repair-form">
+                <!-- Checklist requirement: type="tel", type="email" and required -->
+                <input type="text" name="model" placeholder="Scooter Make/Model" required>
+                <input type="tel" name="phone" placeholder="Owner's Phone (+7...)" required pattern="[\+]\d{1,11}">
+                <input type="email" name="email" placeholder="Email Address" required>
+                <textarea name="defect" placeholder="Defect Description" required></textarea>
+                <button type="submit" class="cta-btn submit-btn">Send Request</button>
+            </form>
+        </section>
+    </main>
+
+    <!-- 5. Footer Component -->
+    <footer>
+        <address class="legal-info">
+            <p>Workshop Coordinates: 43.2389° N, 76.8897° E (Almaty)</p>
+            <p>Reception Schedule: Mon-Sun 09:00 - 20:00</p>
+            <p>&copy; 2026 ScooterFix Inc. All rights reserved.</p>
+        </address>
+        <div class="footer-nav">
+            <a href="#breakdowns">Services</a>
+            <a href="#feedback">Contact</a>
+        </div>
+        <!-- Theme switch with neon-green -->
+        <button id="theme-switch">Switch Theme</button>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
