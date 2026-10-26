@@ -1,0 +1,219 @@
+/* Multi-theming Variables */
+:root {
+    --bg-color: #ffffff;
+    --text-color: #232323;
+    --nav-bg: #f5f5f5;
+    --card-bg: #ececec;
+    --neon-green: #39ff14; /* Neon-green required by checklist */
+    --accent-blue: #003AB7;
+    --border-radius: 0.5rem;
+}
+
+[data-theme="dark"] {
+    --bg-color: #1a1a1a;
+    --text-color: #ffffff;
+    --nav-bg: #2a2a2a;
+    --card-bg: #333333;
+    --neon-green: #32d910;
+    --accent-blue: #4a90e2;
+}
+
+/* Reset & Base settings without px */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 16px; /* 1rem = 16px. The only px allowed is in base font */
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-family: sans-serif;
+    line-height: 1.5;
+}
+
+/* 1. Header & Nav (Flexbox) */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 5%;
+    background-color: var(--nav-bg);
+}
+
+nav {
+    display: flex;
+    gap: 2rem;
+}
+
+nav a {
+    text-decoration: none;
+    color: var(--text-color);
+    font-weight: bold;
+}
+
+#burger-btn {
+    display: none;
+    font-size: 2rem;
+    background: none;
+    border: none;
+    color: var(--text-color);
+    cursor: pointer;
+}
+
+.cta-btn {
+    padding: 0.8rem 1.5rem;
+    background-color: var(--accent-blue);
+    color: white;
+    border: none;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    font-weight: bold;
+}
+
+/* 2. Hero Section */
+#hero {
+    height: 80vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background-color: var(--card-bg); /* Acts as media background placeholder */
+    padding: 0 5%;
+}
+
+#hero h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+}
+
+/* 3. Grid Section Component */
+#breakdowns {
+    padding: 4rem 5%;
+}
+
+.section-title {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 2rem;
+}
+
+.price-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 columns on desktop */
+    gap: 2rem;
+}
+
+.grid-card {
+    background-color: var(--card-bg);
+    padding: 2rem;
+    border-radius: var(--border-radius);
+    text-align: center;
+}
+
+.grid-card .price {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--accent-blue);
+    margin: 1rem 0;
+}
+
+/* 4. Feedback Form Component */
+#feedback {
+    padding: 4rem 5%;
+    background-color: var(--nav-bg);
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    max-width: 40rem;
+    margin: 0 auto;
+}
+
+input, textarea {
+    width: 100%;
+    padding: 1rem;
+    font-size: 1rem;
+    border: 0.1rem solid #ccc;
+    border-radius: var(--border-radius);
+    background-color: var(--bg-color);
+    color: var(--text-color);
+}
+
+textarea {
+    min-height: 10rem;
+    resize: vertical;
+}
+
+/* 5. Footer Component */
+footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2rem 5%;
+    background-color: var(--card-bg);
+}
+
+.footer-nav a {
+    margin-left: 1rem;
+    text-decoration: none;
+    color: var(--text-color);
+}
+
+/* System Theme Inversion Selector with Neon-Green */
+#theme-switch {
+    padding: 0.8rem 1.5rem;
+    background-color: var(--neon-green);
+    color: #000;
+    border: none;
+    border-radius: var(--border-radius);
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 0 1rem var(--neon-green);
+}
+
+/* Cross-browser Responsiveness (Mobile First / Media Queries) */
+@media (max-width: 1024px) {
+    /* Transform to hidden burger menu */
+    nav {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 4rem;
+        left: 0;
+        width: 100%;
+        background-color: var(--nav-bg);
+        padding: 1rem 5%;
+    }
+
+    nav.active {
+        display: flex;
+    }
+
+    #burger-btn {
+        display: block;
+    }
+
+    .accent-btn {
+        display: none;
+    }
+
+    /* Grid rearranges to single-column format */
+    .price-grid {
+        grid-template-columns: 1fr; 
+    }
+
+    footer {
+        flex-direction: column;
+        gap: 1rem;
+        text-align: center;
+    }
+}
